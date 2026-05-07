@@ -1,0 +1,11 @@
+# Core (optional - for CLI only)
+# No external dependencies required for core functionality!
+
+# Web UI (optional - for Flask web interface)
+flask>=2.0.0
+
+# Alternative LLM backends (install as needed)
+# openai>=1.0.0
+# langchain>=0.0.200
+# chromadb>=0.4.0
+# faiss-cpu>=1.7.0
