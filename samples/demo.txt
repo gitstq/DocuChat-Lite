@@ -1,0 +1,99 @@
+# DocuChat-Lite 使用指南
+
+## 项目简介
+
+DocuChat-Lite 是一个轻量级的文档智能问答引擎，基于 RAG（检索增强生成）技术。它可以帮助用户快速从大量文档中获取所需信息。
+
+## 核心特性
+
+- 🧠 **智能问答**：基于文档内容进行自然语言问答
+- 📄 **多格式支持**：支持 TXT、Markdown 等常见文本格式
+- 🔍 **语义检索**：基于关键词和语义相似度进行文档检索
+- 🤖 **多后端支持**：支持 OpenAI、Ollama 等多种 LLM 后端
+- 🌐 **Web界面**：提供友好的 Web 界面进行交互
+- 📊 **统计信息**：实时显示知识库状态和对话统计
+
+## 安装
+
+### 方式一：直接使用（无需安装依赖）
+
+```bash
+# 克隆项目
+git clone https://github.com/gitstq/DocuChat-Lite.git
+cd DocuChat-Lite
+
+# 直接运行（零依赖核心）
+python docuchat.py --help
+```
+
+### 方式二：Web界面（需要 Flask）
+
+```bash
+pip install flask
+python web_app.py
+```
+
+## 快速开始
+
+### 1. 命令行模式
+
+```bash
+# 导入文档
+python docuchat.py ingest ./samples
+
+# 提问
+python docuchat.py query "文档的主要内容是什么？"
+
+# 查看统计
+python docuchat.py stats
+```
+
+### 2. Web界面模式
+
+```bash
+# 安装Flask
+pip install flask
+
+# 启动服务
+python web_app.py
+
+# 浏览器访问
+open http://localhost:5000
+```
+
+## 环境变量配置
+
+### OpenAI API
+
+```bash
+export OPENAI_API_KEY=your_api_key
+```
+
+### Ollama (本地部署)
+
+```bash
+export OLLAMA_URL=http://localhost:11434
+export OLLAMA_MODEL=llama2
+```
+
+## 目录结构
+
+```
+DocuChat-Lite/
+├── docuchat.py          # 核心引擎
+├── web_app.py           # Web界面
+├── requirements.txt     # 依赖列表
+├── samples/             # 示例文档
+└── README.md            # 说明文档
+```
+
+## 技术原理
+
+1. **文档分块**：将长文档分割成小块，便于检索
+2. **向量化存储**：构建关键词索引
+3. **相似度检索**：根据查询找到相关文档块
+4. **答案生成**：使用LLM基于检索结果生成答案
+
+## License
+
+MIT License
